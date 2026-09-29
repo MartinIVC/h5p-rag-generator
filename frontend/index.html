@@ -1,27 +1,62 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Generador H5P</title>
-  </head>
-  <body>
-  <div class="app-container">
-    <section id="panel-upload"></section>
-    <section id="panel-preview"></section>
-    <section id="panel-config"></section>
-  </div>
+<html lang="es">
 
-    <script src="upload.js"></script>
-    <script src="preview.js"></script>
-    <script src="config.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+  <title>Generador H5P</title>
+</head>
+
+<body>
+  <header class="topbar">
+    <button id="btn-menu" class="btn-icon" title="Abrir menú">☰</button>
+    <h1 class="app-title">Generador H5P</h1>
+  </header>
+
+  <aside id="side-menu" class="side-menu">
+    <div class="side-menu-header">
+      <h2>Menú</h2>
+      <button id="btn-close-menu" class="btn-icon">✕</button>
+    </div>
+    <nav class="side-menu-nav">
+      <button class="menu-item" id="menu-opt-history">📁 Archivos Creados</button>
+      <button class="menu-item" id="menu-opt-settings">⚙️ Opciones</button>
+    </nav>
+  </aside>
+
+  <div id="menu-overlay" class="menu-overley-hidden"></div>
+
+  <nav class="stepper">
+    <div class="step-item active" id="step-indicator-1">
+      <span class="step-num">1</span>
+      <span class="step-text">Subir y Prompt</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item" id="step-indicator-2">
+      <span class="step-num">2</span>
+      <span class="step-text">Tipo H5P</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item" id="step-indicator-3">
+      <span class="step-num">3</span>
+      <span class="step-text">Exportar</span>
+    </div>
+  </nav>
+
+  <main class="step-container">
+
+    <section id="panel-upload" class="step-panel"></section>
+    <section id="panel-selector" class="step-panel hidden"></section>
+    <section id="panel-export" class="step-panel hidden"></section>
+
+  </main>
+
+  <script src="js/menu.js"></script>
+  <script src="js/upload.js"></script>
+  <script src="js/preview.js"></script>
+  <script src="js/config.js"></script>
+</body>
+
 </html>
